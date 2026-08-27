@@ -2,6 +2,11 @@ from typing import Annotated
 
 
 class Book:
+    """Класс для работы с книгами имеющий параметры:
+    title: название книги
+    author: автор произведения
+    pages: количество страниц
+    """
     def __init__(
             self,
             title: Annotated[str, 'title a book'],
@@ -14,6 +19,9 @@ class Book:
         
     def __str__(self) -> str:
         return f"Book: {self.title} | author: {self.author} | pages={self.pages}"
+    
+    def __repr__(self) -> str:
+        return f"Book(title={self.title}, author={self.author}, pages={self.pages})"
     
     # проверяем является ли книга романом
     def is_novel(self) -> bool:
@@ -32,7 +40,9 @@ def main() -> None:
     book1 = Book("Евгений Онегин", "А.С.П", 200)
     print(book1.is_novel())
     print(book1.display_info_book())
-    print(book1)
+    print('-------------------------------')
+    print(str(book1))
+    print(repr(book1))
 
 if __name__ == "__main__":
     main()
