@@ -1,0 +1,45 @@
+import asyncio
+
+import httpx
+
+from base_oop.utils.logger import logger
+
+
+
+async def send_request(client: httpx.AsyncClient, url: str):
+    logger.debug("Отправка [GET] на: {}", url[:30])
+    try:
+        response = await client.get(url)
+        response.raise_for_status()
+        return {
+            'url': response.url,
+            'status': response.status_code
+        }
+    except httpx.TimeoutError:
+        logger.errro("Таймаут на запрос истёк.")
+        raise
+    
+    except httpx.ConnectionError as error:
+        logger.error('Не удалось установить соединение с сервером.\nПричина: {}', error)
+        raise
+    
+    except httpx.HTTPStatusError as error:
+        if response.status_code == 404:
+            logger.warning("ресурс не найден")
+            raise
+
+async def main():
+    urls: list[str] = [
+        'https://sky.pro/wiki/media/ponimanie-parametra-self-v-python/',
+        'https://github.com/elchino1982/python-practices/tree/main/object-oriented-programming/01-classes-and-objects/tutorial#instance-attributes-and-methods',
+        'https://docs.astral.sh/ruff/settings/#output-format'
+    ]
+    async with httpx.AsyncClient(timeout=10.0) as client:
+        tasks = (send_request(client, url) for url in urls)
+        results = await asyncio.gather(*tasks)
+    
+    for url, result in zip(urls, results):
+        logger.debug("Результат отправки запроса на {}: {}", url[:30], result)
+
+if __name__ == "__main__":
+    asyncio.run(main())

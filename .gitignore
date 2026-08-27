@@ -1,0 +1,176 @@
+# ============================================
+# .gitignore — Python проект
+# ============================================
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ---- Виртуальное окружение ----
+venv/
+env/
+ENV/
+.venv/
+.env/
+env.bak/
+venv.bak/
+.venv.bak/
+
+# ---- UV ----
+.venv/
+uv.lock
+uv.toml
+
+# ---- Poetry ----
+poetry.lock
+
+# ---- Pyenv ----
+.python-version
+
+# ---- IDE ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+*.pydevproject
+.project
+.classpath
+.settings/
+
+# ---- VS Code ----
+.vscode/
+*.code-workspace
+.vscode-test/
+
+# ---- PyCharm ----
+.idea/
+*.iml
+*.ipr
+*.iws
+*.ids
+
+# ---- Cursor ----
+.cursor/
+
+# ---- Тесты ----
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+
+# ---- Линтеры ----
+.ruff_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# ---- Логи ----
+*.log
+logs/
+*.log.*
+
+# ---- Базы данных ----
+*.db
+*.sqlite
+*.sqlite3
+
+# ---- Докер ----
+*.pid
+docker-compose.override.yml
+
+# ---- Системные ----
+Thumbs.db
+*.tmp
+*.temp
+*.cache
+*.swp
+*.swo
+*~
+.directory
+.fuse_hidden*
+
+# ---- Секреты ----
+*.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.crt
+*.csr
+*.p12
+*.pfx
+secrets/
+*.secret
+
+# ---- Терминал ----
+.history
+.conda_history
+.bash_history
+.zsh_history
+.ps_history
+.history
+
+# ---- OS ----
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ---- Архивы ----
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# ---- Сборщики ----
+*.egg-info/
+*.dist-info/
+.pip/
+.pip-cache/
+
+# ---- Docker ----
+*.pid
+docker-compose.override.yml
+.dockerignore
+
+# ---- Другое ----
+*.bak
+*.orig
+*.tmp
+*.temp
+
