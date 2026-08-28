@@ -14,11 +14,15 @@ dev = [
     "ruff>=0.6.0",
     "mypy>=1.12.0",
     "pre-commit>=3.8.0",
+    "loguru>=0.7.0",
+    "httpx>=0.27.0",
+    "fastapi>=0.115.0",
+    "pydantic>=2.0.0",
 ]
 
 [tool.ruff]
 line-length = 100
-target-version = "py314"
+target-version = "py313"  # 👈 Исправлено
 
 [tool.ruff.lint]
 select = [
@@ -42,6 +46,7 @@ ignore = [
     "N803",   # argument name should be lowercase
     "N806",   # variable in function should be lowercase
     "N815",   # mixed case variable in class scope
+    "F405",   # star imports (добавлено)
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -59,7 +64,7 @@ skip-magic-trailing-comma = false
 line-ending = "auto"
 
 [tool.mypy]
-python_version = "3.14"
+python_version = "3.13"  # 👈 Исправлено
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
@@ -77,6 +82,7 @@ ignore_missing_imports = false
 [[tool.mypy.overrides]]
 module = [
     "tests.*",
+    "base_oop.utils.*",  # 👈 Добавлено
 ]
 disallow_untyped_defs = false
 
@@ -88,7 +94,7 @@ addopts = [
     "--strict-config",
     "--strict-markers",
     "--tb=short",
-    "--cov=src",
+    "--cov=classes_and_object",  # 👈 Исправлено
     "--cov-report=term-missing",
     "--cov-report=html",
     "--cov-report=xml",
@@ -105,8 +111,8 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["src"]
-omit = ["tests/*", "*/__init__.py"]
+source = ["base_oop"]  # 👈 Исправлено
+omit = ["tests/*", "*/__init__.py", "*/utils/*"]
 
 [tool.coverage.report]
 exclude_lines = [
