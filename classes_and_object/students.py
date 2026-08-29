@@ -4,7 +4,9 @@ from classes_and_object.shames.student_shame import Student, students
 
 
 class StudentManager:
-    """Класс StudentManager для управления и работы со студенами"""
+    """
+    Класс StudentManager для управления и работы со студентами
+    """
     _students: Annotated[list[Student], "list with students"] = []
 
     @classmethod
@@ -32,14 +34,11 @@ class StudentManager:
         return student_id
 
     def find_student_by_id(self, student_id: int) -> Student | None:
-        """Метод для поиска студента по цифровому идентификатору
-        
+        """
+        Метод для поиска студента по цифровому идентификатору
         student_id поисковой ID
-        
-        Return возвращаем найденого студента в виде Student модели
-        
+        Return возвращаем найденного студента в виде Student модели
         если студента по такому id нет возвращается None
-        
         """
         for student in self._students:
             if student.student_id == self._validation_find_id(student_id):
@@ -53,7 +52,8 @@ class StudentManager:
         return None
 
     def delete_student(self, student_id: int) -> None:
-        """Метод для удаления найдено студента по ID
+        """
+        Метод для удаления найдено студента по ID
         self._validation_find_id(student_id) получаем валидный ID
         """
         valid_id = self._validation_find_id(student_id)
@@ -61,17 +61,20 @@ class StudentManager:
             if student.student_id == valid_id:
                 remove_student = self._students.pop(index)
                 print(f"Delete a student: {remove_student}")
-                return
+                return None
+
         return None
 
     def print_all_students(self) -> None:
-        """Проверяем не пустое ли хранилище со студентами"""
-        
+        """
+        Проверяем не пустое ли хранилище со студентами
+        """
         if not self._students:
             print("list with students is empty")
         
-        """Если не пустое то, выводим информацию обо всех учащихся"""
-        
+        """
+        Если не пустое то, выводим информацию обо всех учащихся
+        """
         for student in self._students:
             print(
                 f"StudentID: {student.student_id} | fullname: {student.fullname} | age: {student.age} | group={student.group}"
