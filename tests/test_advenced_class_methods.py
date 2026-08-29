@@ -43,7 +43,7 @@ class TestEmployee:
         (43534.34, True)
     ])
 
-    def test_is_valid_salary(self, salary, expected: bool) -> None:
+    def test_is_valid_salary(self, salary: float, expected: bool) -> None:
         assert Employee.is_valid_salary(salary) == expected
 
     @pytest.mark.parametrize("invalid_salary, invalid_result",[
