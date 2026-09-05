@@ -51,7 +51,7 @@ class BankService(BankAccount):
 
         if amount <= 0:
             logger.error("Сумма снятия отрицательна либо равна 0")
-            raise ValueError("Сумма снятия отрицательна либо равна 0")
+            raise ValueError("указанная cумма отрицательна либо равна 0")
 
         return amount
 
