@@ -3,8 +3,8 @@ from classes_and_object.utils.logger import logger
 
 class Product:
     def __init__(self, title: str, price: float) -> None:
-        self._title = title
-        self._price = price
+        self.title = title
+        self.price = price
     
     @property
     def title(self) -> str:
