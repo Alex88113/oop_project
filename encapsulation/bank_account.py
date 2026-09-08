@@ -2,9 +2,9 @@ from classes_and_object.utils.logger import logger
 
 
 class BankAccount:
-    def __init__(self, account_number: str, balance: float = 0.0) -> None:
-        self._account_number = account_number
-        self._balance = balance
+    def __init__(self, account_number: str, balance: float=0.0) -> None:
+        self.account_number = account_number
+        self.balance = balance
 
     @property
     def account_number(self) -> str:
