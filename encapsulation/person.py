@@ -3,8 +3,6 @@ from classes_and_object.utils.logger import logger
 
 class Person:
     def __init__(self, name: str, age: int) -> None:
-        self._name = None
-        self._age = None
         self.name = name
         self.age = age
         
