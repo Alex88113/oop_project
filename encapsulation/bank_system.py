@@ -5,8 +5,8 @@ from classes_and_object.utils.logger import logger
 
 class BankAccount(ABC):
     def __init__(self, account_number: str, balance: float=0.0) -> None:
-        self._account_number = account_number
-        self._balance = balance
+        self.account_number = account_number
+        self.balance = balance
 
     @abstractmethod
     def deposit(self, amount: float) -> float:
